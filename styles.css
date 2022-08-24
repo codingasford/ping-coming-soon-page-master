@@ -4,14 +4,21 @@
     box-sizing: border-box;
     font-family: 'Libre Franklin', sans-serif;
     white-space: nowrap;
+
 }
 
-#flex-container {
+
+
+#main-flex-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 4rem;
     text-align: center;
+    margin: 4rem;
+}
+
+#form-flex-container {
+    position: relative;
 }
 
 #logo {
@@ -39,6 +46,7 @@
     font-weight: 500;
 }
 
+
 #email-input {
     border: 1px solid hsl(0, 0%, 59%);
     border-radius: 2rem;
@@ -48,23 +56,116 @@
     margin-right: 0.5rem;
 }
 
-#notify-btn {
+#email-input:focus {
+    outline: none;
+}
+
+#invalid-warning {
+    position: absolute;
+    color: red;
+    font-size: 0.7rem;
+    font-style: italic;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    
+}
+
+#notify-btn-container {
+    display: inline;
+    position: relative;
     height: 2.3rem;
     width: 8.5rem;
-    background-color: hsl(223, 87%, 63%);
+}
+
+#notify-btn {
+    top: -0.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+
+    height: 2.3rem;
+    width: 8.5rem;
+    background-color: transparent;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    pointer-events: none;
+    z-index: 100;
+
+
+    /* box-shadow: 0px 1px 5px -1px hsl(223, 87%, 63%); */
+} 
+
+#decoy-btn {
+    position: absolute;
+    top: -0.5rem;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+
+    height: 2.3rem;
+    width: 8.5rem;
+    background-color: hsl(223, 87%, 63%); 
     border: none;
     border-radius: 2rem;
     color: white;
     font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0px 1px 5px -1px hsl(223, 87%, 63%);
-} 
+    box-shadow: 0px 1px 5px -1px hsl(223, 87%, 63%); 
+    z-index: 1;
+}
+
+#decoy-btn:hover {
+    background-color: hsl(223, 100%, 88%);
+    box-shadow: 0px 1px 5px -1px hsl(223, 100%, 88%);
+}
 
 #illustration {
-    min-height: 10rem;
-    max-height: 20rem;
-    width: 70vw;
-    max-width: 25rem;
-    margin-top: 3.5rem;
+    width: 25rem;
+    margin: 5rem;
+}
+
+@media screen and (max-width: 600px) {
+    #form-flex-container {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    #invalid-warning {
+        top: 2.5rem;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        
+    }
+    
+    #notify-btn-container {
+        position: absolute; 
+        left: 0; 
+        right: 0; 
+        top: 5.5rem;
+        margin-left: auto; 
+        margin-right: auto; 
+        width: 100%;
+    }
+
+    #notify-btn {
+        width: 100%;
+    }
+
+    #decoy-btn {
+        width: 100%;
+    }
+
+    #illustration {
+        margin-top: 8rem;
+        width: 20rem;
+    }
+
 }

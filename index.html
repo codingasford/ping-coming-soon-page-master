@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <script src="./app.js" defer></script>
     <title>Ping Coming Soon Page</title>
 </head>
 <body>
-    <div id="flex-container">
+    <div id="main-flex-container">
         <header>
             <img src="./Instructions/images/logo.svg" id="logo">
             <br>
@@ -19,8 +20,16 @@
             <div id="subscribe-text">Subscribe and get notified</div>
         </header>
         <section>
-            <input type="text" placeholder="Your email address..." id="email-input">
-            <button id="notify-btn">Notify Me</button>
+            <form action="" id="form-flex-container">
+                    <input type="text" placeholder="Your email address..." id="email-input" required
+                    oninvalid="this.setCustomValidity(' '); HandleInvalid();"
+                    oninput="setCustomValidity('')">
+                    <div id="notify-btn-container">
+                        <button type="submit" id="notify-btn">Notify Me</button>
+                        <button id="decoy-btn">Notify Me</button>
+                    </div>
+                    <div id="invalid-warning">Please provide a valid email address</div>
+                </form>
         </section>
         <img src="./Instructions/images/illustration-dashboard.png" id="illustration">
     </div>
